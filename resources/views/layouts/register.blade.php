@@ -5,7 +5,7 @@
     <div>
         <H2>Register to Continue</H2>
     </div>
-    <form action="{{route('userWelcome')}}" method="POST" onsubmit="return validate();">
+    <form action="{{route('userWelcome')}}" method="POST" onsubmit="return validate();" enctype="multipart/form-data">
 
         {{ csrf_field() }}
 
@@ -31,6 +31,11 @@
         <div class="form-group">
             <label for="mobile">Mobile No.</label>
             <input type="number" class="form-control" name="mobile" id="number" maxlength="11">
+        </div>
+
+        <div class="form-group">
+            <label for="mobile">Profile Image</label>
+            <input type="file" class="form-control" name="image">
         </div>
 
         <div class="form-group">

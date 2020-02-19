@@ -7,7 +7,16 @@
         @foreach($postData as $key=>$value)
         
             <div class="container">
-                <h4>{{$key}} : {{$value}}</h4>
+                @if($key=="image")
+                    <h4>
+                        {{$key}} : 
+                            <img src = "{{asset($value)}}" altname="Profile Image" height="150px" width="150px">
+                            <br>
+                            &emsp; {{$value}}
+                    </h4>
+                @else
+                    <h4>{{$key}} : {{$value}}</h4>
+                @endif
             </div>
 
         @endforeach

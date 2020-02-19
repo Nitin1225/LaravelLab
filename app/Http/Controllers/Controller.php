@@ -66,17 +66,48 @@ class Controller extends BaseController
             'email' => 'required',
             'pass1' => 'required',
             'pass' => 'required',
-            'mobile' => 'required'
+            'mobile' => 'required',
+            'image' => 'required'
         ]);
+
+        $file = $request->file('image');
+
+        $fileFullName = $file->getClientOriginalName(); // file name with extension
+
+        $fileName = pathinfo($fileFullName, PATHINFO_FILENAME); // only filename
+
+        $fileExt = $file->getClientOriginalExtension(); // png i.e. extension
+        
+        $filePath = $file->getRealPath(); // C:\xampp\tmp\php164D.tmp
+
+        $fileMimeType = $file->getMimeType(); // image/png
+
+        $fileSize = $file->getSize(); // file size in bytes
+
+        // File Moving 
+            // $destinationPath = 'uploads';
+            // $newName = $fileName.'_'.time().'.'.$fileExt;
+            // $file->move($destinationPath, $newName);
+            // // // // $file->move($destinationPath, $file->getClientOriginalName());
+            // $fileMovedPath = $destinationPath.'/'.$newName;
+            
+        // File Move Another Way
+            $destinationPath = 'public/images';
+            $newName = $fileName.'_'.time().'.'.$fileExt;
+            $file->storeAs($destinationPath, $newName);
+            // // // $fileMovedPath = 'storage/'.$destinationPath.'/'.$newName;
+            $fileMovedPath = 'storage/images/'.$newName;
 
         $postData = (array)$request->all();
         unset($postData['_token']);
+        $postData['image'] = $fileMovedPath;
         $data['pageTitle'] = "Welcome";
         $data['functionName'] = "userWelcome";
         $data['postData'] = $postData;
+
         // $data = array(
-        //     'title' => 'Welcome',
-        //     'func' => 'userWelcome'
+        //     'pageTitle' => 'Welcome',
+        //     'functionName' => 'userWelcome'
         // );
         // foreach (array_keys($request->name) as $key) {
         //     $value = $request[$key];
