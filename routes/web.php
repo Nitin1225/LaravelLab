@@ -19,6 +19,10 @@ Route::get('/projects', 'Controller@projects')->name('projects');
 
 Route::get('/faq', 'Controller@faq')->name('faq');
 
-Route::get('/register', 'Controller@register')->name('register');
+// Route::get('/register', 'Controller@register')->name('register');
 
-Route::post('/user/welcome', 'Controller@userWelcome')->name('userWelcome');
+// Route::post('/user/welcome', 'Controller@userWelcome')->name('userWelcome');
+
+Route::resource('user', 'UserController');
+
+//Route::get('/user/index', 'UserController@index')->name('userRegister');

@@ -15,14 +15,14 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="about">Nitin Kumar</a>
+                <a class="navbar-brand" href="{{route('home')}}">Nitin Kumar</a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="@if($functionName=='home') active @endif"><a href="{{route('home')}}">Home</a></li>
-                <li class="@if($functionName=='projects') active @endif"><a href="{{route('projects')}}">Projects</a></li>
-                <li class="@if($functionName=='faq') active @endif"><a href="{{route('faq')}}">FAQ</a></li>
-                <li class="@if($functionName=='about') active @endif"><a href="{{route('about')}}">About Me</a></li>
-                <li class="@if($functionName=='register') active @endif"><a href="{{route('register')}}">Register</a></li>
+                <li class="{{Route::is('home')?'active':''}}"><a href="{{route('home')}}">Home</a></li>
+                <li class="{{Route::is('projects')?'active':''}}"><a href="{{route('projects')}}">Projects</a></li>
+                <li class="{{Route::is('faq')?'active':''}}"><a href="{{route('faq')}}">FAQ</a></li>
+                <li class="{{Route::is('about')?'active':''}}"><a href="{{route('about')}}">About Me</a></li>
+                <li class="{{Request::segment(1)==='user'?'active':''}}"><a href="{{url('user')}}">Login/Register</a></li>
             </ul>
         </div>
     </nav>

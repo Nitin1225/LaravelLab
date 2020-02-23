@@ -21,13 +21,19 @@
                     </center>
                     <hr>
                     <center>
-                        <p class="text-center"><strong>Information : </strong><br>
+                        @foreach($postData as $key=>$value)    
+                            @if($key!="image")
+                                <span class="label label-info">{{$key}} : {{$value}}</span> 
+                                <br>                            
+                            @endif
+                        @endforeach
+                        <!-- <p class="text-center"><strong>Information : </strong><br>
                             <span class="label label-info">Email : {{$postData['email']}}</span>
-                            <span class="label label-warning">Password : {{$postData['pass1']}}</span>
+                            <span class="label label-warning">Password : {{$postData['pass1']}}</span> -->
                             <!-- <span class="label label-warning">{{$postData['pass']}}</span> -->
-                            <span class="label label-info">Contact No. : {{$postData['mobile']}}</span>
+                            <!-- <span class="label label-info">Contact No. : {{$postData['mobile']}}</span>
                         </p>
-                    <br>
+                        <br> -->
                     </center>
                 </div>
                 <div class="footer">

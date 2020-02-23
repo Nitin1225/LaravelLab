@@ -60,7 +60,6 @@ class Controller extends BaseController
 
     public function userWelcome(Request $request)
     {
-
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required',
