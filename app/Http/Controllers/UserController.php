@@ -14,12 +14,20 @@ class UserController extends Controller
      */
     public function index()
     {
-        $data = array(
-            'pageTitle'=>"User Details",
-            'functionName'=>"user"
-        );
+        // $data = array(
+        //     'pageTitle'=>"User Details",
+        //     //'functionName'=>"user"
+        // );
+
+        $dbData = UserDetails::all();
+        unset($dbData['created_at']);
+        $data['pageTitle'] = "Welcome";
+        $data['functionName'] = "userWelcome";
+        $data['dbData'] = $dbData;
+
+        //return UserDetails::all();
         return view('users.index')->with($data);
-        //return view('');
+        //return  $dbData;
     }
 
     /**

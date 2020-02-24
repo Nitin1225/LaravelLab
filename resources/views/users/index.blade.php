@@ -17,6 +17,32 @@
                         <input type="submit" class="btn btn-primary" value="Register"> -->
                     </form>
                 </div>
+                <div>
+                    <div align="center">
+                        <table class="table table-bordered">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <td scope="col">ID</td>
+                                    <td>Image</td>
+                                    <td>Name</td>
+                                    <td>Email</td>
+                                    <td>Password</td>
+                                    <td>Number</td>
+                                </tr>
+                            </thead>
+                                @foreach ($dbData as $user)
+                                    <tr>
+                                        <td>{{ $user->id }}</td>
+                                        <td><img src="{{asset($user->imgpath)}}" name="Profile Pic" width="100" height="100" border="0" class="img-circle"></a></td>
+                                        <td>{{ $user->name }}</td>
+                                        <td>{{ $user->email }}</td>
+                                        <td>{{ $user->pass }}</td>
+                                        <td>{{ $user->number }}</td>
+                                    </tr>
+                                @endforeach
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
